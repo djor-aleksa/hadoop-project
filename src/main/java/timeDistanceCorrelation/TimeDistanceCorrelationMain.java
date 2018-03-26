@@ -23,8 +23,8 @@ public class TimeDistanceCorrelationMain {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FloatWritable.class);
 
-        job.setCombinerClass(TimeDistanceCorrelationReducer.class);
-        job.setNumReduceTasks(1);
+        job.setPartitionerClass(TDCPartitioner.class);
+        //job.setNumReduceTasks(365);
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));

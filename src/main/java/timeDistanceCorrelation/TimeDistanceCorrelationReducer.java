@@ -25,6 +25,7 @@ public class TimeDistanceCorrelationReducer extends Reducer<Text, FloatWritable,
             longestAverageTripDistance = averageTripDistance;
             longestTripsDay = key.toString();
         }
+        context.write(new Text(key),new FloatWritable(averageTripDistance));
     }
     @Override
     public void cleanup(Context context) throws IOException, InterruptedException {
