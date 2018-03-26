@@ -1,4 +1,4 @@
-package passengerPerHour;
+package passengersPerHour;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -11,15 +11,15 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class PassengerPerHourMain {
+public class PPHMain {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf,"Passenger per hour");
 
-        job.setJarByClass(PassengerPerHourMain.class);
+        job.setJarByClass(PPHMain.class);
 
-        job.setMapperClass(PassengersPerHourMapper.class);
-        job.setReducerClass(PassengersPerHourReducer.class);
+        job.setMapperClass(PPHMapper.class);
+        job.setReducerClass(PPHReducer.class);
 
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);

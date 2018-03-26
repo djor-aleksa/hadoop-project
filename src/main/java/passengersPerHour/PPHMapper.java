@@ -1,4 +1,4 @@
-package passengerPerHour;
+package passengersPerHour;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class PassengersPerHourMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class PPHMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 
 
     @Override

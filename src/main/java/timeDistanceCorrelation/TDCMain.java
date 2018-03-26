@@ -10,15 +10,15 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class TimeDistanceCorrelationMain {
+public class TDCMain {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf,"Time-distance correlation");
 
-        job.setJarByClass(TimeDistanceCorrelationMain.class);
+        job.setJarByClass(TDCMain.class);
 
-        job.setMapperClass(TimeDistanceCorrelationMapper.class);
-        job.setReducerClass(TimeDistanceCorrelationReducer.class);
+        job.setMapperClass(TDCMapper.class);
+        job.setReducerClass(TDCReducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FloatWritable.class);

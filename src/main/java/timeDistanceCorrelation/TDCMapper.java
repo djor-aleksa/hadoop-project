@@ -8,7 +8,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class TimeDistanceCorrelationMapper extends Mapper<LongWritable, Text, Text, FloatWritable> {
+public class TDCMapper extends Mapper<LongWritable, Text, Text, FloatWritable> {
 
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {

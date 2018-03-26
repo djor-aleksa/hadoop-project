@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class TimeDistanceCorrelationReducer extends Reducer<Text, FloatWritable, Text, FloatWritable> {
+public class TDCReducer extends Reducer<Text, FloatWritable, Text, FloatWritable> {
     private String longestTripsDay="";
     private Float longestAverageTripDistance = 0.0f;
     @Override
