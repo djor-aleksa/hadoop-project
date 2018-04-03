@@ -1,4 +1,4 @@
-package timeDistanceCorrelation;
+package timeProfiltCorrelation;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -10,20 +10,23 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class TDCMain {
+public class TPCMain {
+
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf,"Time-distance correlation");
+        Configuration configuration = new Configuration();
 
-        job.setJarByClass(TDCMain.class);
+        Job job = Job.getInstance(configuration,"Time-profit correlation");
 
-        job.setMapperClass(TDCMapper.class);
-        job.setReducerClass(TDCReducer.class);
+        job.setJarByClass(TPCMain.class);
+
+        job.setMapperClass(TPCMapper.class);
+        job.setReducerClass(TPCReducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FloatWritable.class);
 
-        job.setPartitionerClass(TDCPartitioner.class);
+        job.setPartitionerClass(TPCPartitioner.class);
+        //job.setNumReduceTasks(365);
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
