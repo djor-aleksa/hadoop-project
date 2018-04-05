@@ -25,7 +25,6 @@ public class TDCReducer extends Reducer<Text, FloatWritable, Text, FloatWritable
             longestAverageTripDistance = averageTripDistance;
             longestTripsDay = key.toString();
         }
-        context.write(new Text(key),new FloatWritable(averageTripDistance));
     }
     @Override
     public void cleanup(Context context) throws IOException, InterruptedException {
